@@ -5,11 +5,11 @@ metadata:
 spec:
   containers:
   - name: atharva-container1
-    image: nginx
+    image: vegetable:v1.0.1
     ports:
-    - containerPort: 80
+    - containerPort: 5000
     
   - name: atharva-container2
-    image: ubuntu
+    image: organic:v1.1.0
     ports:
-    - containerPort: 80
+    - containerPort: 5656
