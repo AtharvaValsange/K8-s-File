@@ -4,11 +4,11 @@ metadata:
   name: atharva-pod
 spec:
   containers:
-  - name: atharva-container
+  - name: atharva-container1
     image: nginx
     ports:
     - containerPort: 80
-  containers:
+    
   - name: atharva-container2
     image: ubuntu
     ports:
