@@ -5,11 +5,11 @@ metadata:
 spec:
   containers:
   - name: atharva-container1
-    image: vegetable:v1.0.1
+    image: atharva7823/vegetable:v1.0.1
     ports:
     - containerPort: 5000
     
   - name: atharva-container2
-    image: organic:v1.1.0
+    image: atharva7823/organic:v1.1.0
     ports:
     - containerPort: 5656
