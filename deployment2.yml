@@ -30,12 +30,10 @@ kind: Service
 metadata:
   name: atharva-service
 spec:
-  type: LoadBalancer
-
   selector:
     app: web
-
   ports:
     - protocol: TCP
-      port: 80
+      port: 5656
       targetPort: 5656
+  type: LoadBalancer
