@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: atharva-container1
-        image: marketplace-frontend:1.0
+        image: atharva7823/marketplace-frontend:1.0
         ports:
         - containerPort: 3000
