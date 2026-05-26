@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atharva-deployment5
+  labels:
+    first: app
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: web
+
+  template:
+    metadata:
+      labels:
+        app: web
+
+    spec:
+      containers:
+      - name: atharva-container5
+        image: atharva7823/marketplace-frontend:1.0
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: atharva-configmap1
+        - secretRef:
+            name: atharva-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: atharva-service5
+spec:
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30008
+
+  type: NodePort
