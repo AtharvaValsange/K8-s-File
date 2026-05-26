@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: atharva-configmap 
+data:
+  DB_HOST: "Mongodb"
+  DB_PORT: "27017"
+  DB_USER: "admin"
+  APP_NAME: "Vegetable App"
+  APP_PORT: "3000"
+  

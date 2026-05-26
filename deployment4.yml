@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atharva-deployment4
+  labels:
+    first: app
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: web
+
+  template:
+    metadata:
+      labels:
+        app: web
+
+    spec:
+      containers:
+      - name: atharva-container4
+        image: atharva7823/vegetable:v1.0.1
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: atharva-configmap
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: atharva-service4
+spec:
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30008
+
+  type: NodePort
