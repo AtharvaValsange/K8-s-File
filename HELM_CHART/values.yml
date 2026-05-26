@@ -1,0 +1,28 @@
+replicaCount: 3
+
+containers:
+  - name: atharva-container
+    image: atharva7823/marketplace-frontend:1.0
+    ports:
+      - containerPort: 3000
+
+service:
+  name: atharva-service
+  port: 3000
+  targetPort: 3000
+  nodePort: 30008
+  type: NodePort
+
+configMap:
+  name: atharva-configmap
+  data:
+    REACT_APP_API_URL: "http://<BACKEND-SERVICE>:5000"
+    APP_NAME: "Marketplace-App"
+    APP_PORT: "3000"
+
+secret:
+  name: atharva-secret
+  type: Opaque
+  data:
+    DB_USER: YWRtaW4=
+    DB_PASSWORD: YXRoYXJ2YUA3ODIz

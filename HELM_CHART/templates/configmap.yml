@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: {{ .Values.configMap.name }}
+
+data:
+  REACT_APP_API_URL: "{{ .Values.configMap.data.REACT_APP_API_URL }}"
+  APP_NAME: "{{ .Values.configMap.data.APP_NAME }}"
+  APP_PORT: "{{ .Values.configMap.data.APP_PORT }}"

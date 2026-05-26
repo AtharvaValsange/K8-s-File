@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ .Release.Name }}-deployment
+  labels:
+    first: app
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: web
+
+  template:
+    metadata:
+      labels:
+        app: web
+
+    spec:
+      containers:
+{{- range .Values.containers }}
+      - name: {{ .name }}
+        image: {{ .image }}
+
+        ports:
+{{- range .ports }}
+        - containerPort: {{ .containerPort }}
+{{- end }}
+
+        envFrom:
+        - configMapRef:
+            name: {{ $.Values.configMap.name }}
+
+        - secretRef:
+            name: {{ $.Values.secret.name }}
+
+{{- end }}
+
+---
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: {{ .Values.service.name }}
+
+spec:
+  selector:
+    app: web
+
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      nodePort: {{ .Values.service.nodePort }}
+
+  type: {{ .Values.service.type }}
