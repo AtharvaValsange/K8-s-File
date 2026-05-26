@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: atharva-container4
-        image: atharva7823/vegetable:v1.0.1
+        image: atharva7823/marketplace-frontend:1.0
         ports:
         - containerPort: 3000
         envFrom:

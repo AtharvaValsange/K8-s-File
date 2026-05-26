@@ -3,9 +3,9 @@ kind: ConfigMap
 metadata:
   name: atharva-configmap 
 data:
-  DB_HOST: "Mongodb"
-  DB_PORT: "27017"
-  DB_USER: "admin"
-  APP_NAME: "Vegetable App"
-  APP_PORT: "3000"
-  
+  # DB_HOST: "Mongodb"
+  # DB_PORT: "27017"
+  # DB_USER: "admin"
+  # APP_NAME: "Marketplace-App"
+  # APP_PORT: "3000"
+  REACT_APP_API_URL: "http://<BACKEND-SERVICE>:5000"
