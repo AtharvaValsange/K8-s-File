@@ -6,6 +6,10 @@ containers:
     ports:
       - containerPort: 3000
 
+volume:
+  name: market-volume
+  mountPath: /app/data
+
 service:
   name: atharva-service
   port: 3000

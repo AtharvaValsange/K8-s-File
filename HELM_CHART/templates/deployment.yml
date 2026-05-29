@@ -29,6 +29,10 @@ spec:
         - containerPort: {{ .containerPort }}
 {{- end }}
 
+        volumeMounts:
+        - name: {{ $.Values.volume.name }}
+          mountPath: {{ $.Values.volume.mountPath }}
+
         envFrom:
         - configMapRef:
             name: {{ $.Values.configMap.name }}
@@ -37,6 +41,10 @@ spec:
             name: {{ $.Values.secret.name }}
 
 {{- end }}
+
+      volumes:
+      - name: {{ .Values.volume.name }}
+        emptyDir: {}
 
 ---
 
